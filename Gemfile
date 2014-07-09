@@ -7,6 +7,11 @@ gem 'rails', '4.1.1'
 group :development, :test  do
 
 	gem 'sqlite3'
+	gem 'rspec-rails', '~> 3.0.0'
+	gem "factory_girl_rails", "~> 4.0"
+	gem 'capybara'
+	gem 'simplecov', '~> 0.7.1'
+	gem 'faker'
 end
 group :production do
 	gem 'pg'
