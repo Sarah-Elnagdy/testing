@@ -1,0 +1,27 @@
+      remove  app/controllers/_controller.rb
+       route  get '\/\'
+       route  get '\/about'
+       route  get '\/home'
+       route  get '\/StaticPages'
+      invoke  erb
+      remove    app/views
+      remove    app/views/StaticPages.html.erb
+      remove    app/views/home.html.erb
+      remove    app/views/about.html.erb
+      remove    app/views/.html.erb
+      invoke  rspec
+      remove    spec/controllers/_controller_spec.rb
+      remove    spec/views
+      remove    spec/views/StaticPages.html.erb_spec.rb
+      remove    spec/views/home.html.erb_spec.rb
+      remove    spec/views/about.html.erb_spec.rb
+      remove    spec/views/.html.erb_spec.rb
+      invoke  helper
+      remove    app/helpers/_helper.rb
+      invoke    rspec
+      remove      spec/helpers/_helper_spec.rb
+      invoke  assets
+      invoke    coffee
+      remove      app/assets/javascripts/.js.coffee
+      invoke    scss
+      remove      app/assets/stylesheets/.css.scss
