@@ -1,0 +1,41 @@
+{
+  "RSpec": {
+    "coverage": {
+      "C:/Users/sarah/Desktop/sasa/opa/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/helpers/blogs_helper.rb": [
+        1,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/controllers/blogs_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1405290926
+  }
+}

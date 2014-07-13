@@ -29,9 +29,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  conﬁg.include Capybara::DSL
+config.include Capybara::DSL
  #factory girl
-conﬁg.include FactoryGirl::Syntax::Methods
+config.include FactoryGirl::Syntax::Methods
 
 
   # RSpec Rails can automatically mix in different behaviours to your tests
