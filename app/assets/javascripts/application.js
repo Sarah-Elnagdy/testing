@@ -1,5 +1,3 @@
-custom.css.scss
- 
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -17,4 +15,3 @@ custom.css.scss
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
 
   get '/new' => 'users#new' 
 
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   get '/about' => 'blogs#about'
   get '/signup' => 'users#new'
   get '/users' => 'users#new'
+  get '/contact' => 'blogs#contact'
+  post '/send_email' => 'blogs#send_email'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
