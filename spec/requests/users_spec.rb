@@ -57,6 +57,7 @@ describe "signup" do
 				  		expect(page).to have_title(user.name)
 
 end
+                 it { should have_link('Sign out') }
 end
 
 	end

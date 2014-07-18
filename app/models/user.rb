@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
 	
 	before_save { |user| user.email = user.email.downcase }
+	before_save :create_remember_token 
 	before_validation { |user| user.name = "hamada" if user.name.blank?}
 
 
@@ -19,6 +20,10 @@ class User < ActiveRecord::Base
 def self.name_longer_than_eight()
 	User.where(length(name) > 8 )
 
+end
+private 
+def create_remember_token
+	self.remember_token = SecureRandom.urlsafe_base64
 end
 
 

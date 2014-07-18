@@ -37,6 +37,13 @@ RSpec.describe "Blogs", :type => :request do
     end
 
 
+     it "should have link 'Sign in'" do
+      visit root_path
+      page.should have_link('Sign in', :href => root_path(@Users))
+
+    end
+
+
  
 
   end

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
 
   get '/new' => 'users#new' 
+  get '/signin' => 'sessions#new'
+  get '/signout' => 'sessions#destroy', via: :delete
+
 
    
   root 'blogs#home'
