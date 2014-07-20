@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/new' => 'users#new' 
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy', via: :delete
+  get '/edit_user' => 'users#edit_user'
 
 
    
