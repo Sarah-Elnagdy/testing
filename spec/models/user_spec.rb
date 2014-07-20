@@ -78,8 +78,9 @@ describe "when password is too short" do
 end
 describe "remember token" do
 	before { @user.save}
-	its(:remember_token) { should_not be_blank}
-
+	it "should have a non blank remember token" do
+		expect(@user.remember_token).not_to be_blank
 	end
+end
 
 end

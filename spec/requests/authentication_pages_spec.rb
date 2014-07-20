@@ -14,7 +14,7 @@ RSpec.describe "AuthenticationPages", :type => :request do
     describe "with valid info" do
     		before { click_button "Sign in"}
     		
-  			it { save_and_open_page; should have_selector('div.alert.alert-danger', text: 'Invalid') }
+  			it { should have_selector('div.alert.alert-danger', text: 'Invalid') }
 
    			describe "after visiting anothe page" do
 	  			 before { click_link "About Us" }
@@ -37,11 +37,12 @@ RSpec.describe "AuthenticationPages", :type => :request do
     it { should have_link('Profile', href: user_path(user)) }
     it { should have_link('Sign out', href: signout_path) }
     it { should have_link('Settings', href: edit_user_path(user)) }
+    it { should have_link('Users',  href: users_path) }
     it { should_not have_link('Sign in', href: signin_path) }
 
     describe "follow by signout" do
     	before { click_link "Sign out" }
-    	it { should have_link('Sign in') }
+    	it {should have_css("form.signin")}
 
     end
 
@@ -57,15 +58,27 @@ end
       describe "when attempting to visit a protected page" do
        before do
         visit edit_user_path(user)
-        fill_in "Name", with: user.name
         fill_in "Email", with: user.email
+        fill_in "Password", with: user.password
+
         click_button "Sign in"
        end
        describe "after signing in" do
         it "should render the desired protected page" do
-              it "should have  title" do
-                 expect(page).to have_title('Edit user')
-               end
+          save_and_open_page;
+                 expect(page).to have_title('Edit User')
+        end
+        describe "when signing in again" do
+          before do
+            click_link "Sign out"
+            fill_in "Email", with: user.email
+           fill_in "Password", with: user.password
+         click_button "Sign in"
+          end
+          it "should render the default (profile) page" do
+           expect(page).to have_title(user.name)
+          end
+
         end
        end
       end
@@ -73,16 +86,18 @@ end
 
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
-                 it "should have  title" do
-      expect(page).to have_title('Sign in')
-    end
-    it { should have_selector('div.alert.alert-notice') }
+   
+    it { should have_selector('div.alert.alert-danger') }
 
         end
         describe "submitting to the update action" do
           before { put user_path(user) }
-          specify { response.should redirect_to(signin_path)}
+          specify { response.should redirect_to(root_path)}
 
+        end
+        describe "visiting the user index" do
+          before { visit users_path }
+         
         end
 
       end
@@ -93,7 +108,7 @@ end
        describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
        it "should have  title" do
-         expect(page).to have_title('Edit user')
+         expect(page).not_to have_title('Edit User')
         end
        end
        describe "submitting a PUT request to the Users#update action" do

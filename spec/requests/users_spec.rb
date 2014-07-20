@@ -3,6 +3,37 @@ require 'rails_helper'
 RSpec.describe "Users", :type => :request do
  
 	subject{page}
+
+	describe"index" do
+		let(:user) { FactoryGirl.create(:user) }
+          before(:all)  { 30.times { FactoryGirl.create(:user) } }
+          after(:all) { User.delete_all }
+
+
+
+		before(:each) do
+       sign_in user
+      
+       visit users_path
+		end
+      	it "should have correct title" do
+  		     expect(page).to have_title('All Users')
+  	end
+  	it { should have_selector('h1', text:'All Users') }
+ 
+     describe "pagination" do
+          it { should have_selector('div.pagination') }
+           it "should list each user" do
+         User.paginate(page: 1).each do |user|
+      	 page.should have_selector('li>a', text: user.name)
+      end
+    end
+     end
+   
+      end
+
+
+
      describe "GET 'new'" do
     it "should have the base title" do
       visit signup_path
@@ -78,7 +109,7 @@ end
 			  	it "should have edit title" do
   		expect(page).to have_title("Edit User")
   	end
-  	it { should have_link('change', href: 'http//gravatar.com/emails') }
+  	it { should have_link('change', href: 'http://gravatar.com/emails') }
 		end
 		describe "with invalid info" do
 		  before { click_button "Save changes" }
@@ -92,8 +123,8 @@ end
 			before do
 				fill_in "Name", with: new_name
 				fill_in "Email", with: new_email
-				fill_in "Password", with: user.Password
-				fill_in "Comfirm Password" with: user.Password
+				fill_in "Password", with: user.password
+				fill_in "Confirm Password", with: user.password
 			    click_button "Save changes"
 			end
 						  	it "should have  title" do
@@ -102,7 +133,7 @@ end
   	it { should have_link('Sign out', href: signout_path) }
   	it { should have_selector('div.alert.alert-success') }
   	specify { user.reload.name.should == new_name }
-    specify { user.reload.emial.should == new_email }
+    specify { user.reload.email.should == new_email }
 		end
 
 	end
