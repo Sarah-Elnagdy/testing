@@ -14,7 +14,7 @@ RSpec.describe "AuthenticationPages", :type => :request do
     describe "with valid info" do
     		before { click_button "Sign in"}
     		
-  			it { save_and_open_page; should have_selector('div.alert.alert-danger', text: 'Invalid') }
+  			it { should have_selector('div.alert.alert-danger', text: 'Invalid') }
 
    			describe "after visiting anothe page" do
 	  			 before { click_link "About Us" }
@@ -43,7 +43,7 @@ RSpec.describe "AuthenticationPages", :type => :request do
 
     describe "follow by signout" do
     	before { click_link "Sign out" }
-    	it { should have_link('Sign in') }
+    	it {should have_css("form.signin")}
 
     end
 

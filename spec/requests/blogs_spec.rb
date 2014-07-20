@@ -7,7 +7,6 @@ RSpec.describe "Blogs", :type => :request do
   describe "GET 'home'" do
     it "should have the base title" do
       visit root_path
-      save_and_open_page
       expect(page).to have_title('Demo |  ')
     end
 
@@ -39,8 +38,8 @@ RSpec.describe "Blogs", :type => :request do
 
      it "should have link 'Sign in'" do
       visit root_path
-      page.should have_link('Sign in', :href => root_path(@Users))
-
+      #page.should have_link('Sign in')
+      page.should have_css("form.signin")
     end
 
 
