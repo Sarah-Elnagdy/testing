@@ -18,15 +18,16 @@ RSpec.describe "Users", :type => :request do
 		end
       	it "should have correct title" do
   		     expect(page).to have_title('All Users')
-  	end
+  		end
   	it { should have_selector('h1', text:'All Users') }
  
      describe "pagination" do
           it { should have_selector('div.pagination') }
            it "should list each user" do
-         User.paginate(page: 1).each do |user|
-      	 page.should have_selector('li>a', text: user.name)
-      end
+		        User.paginate(page: 1, :per_page => 5).each do |user|
+		      	 page.should have_selector('li>a', text: user.name)
+		      end
+		  end
 
       describe "delete links" do
         it { should_not have_link('delete') }
@@ -35,12 +36,13 @@ RSpec.describe "Users", :type => :request do
         describe"as an admin" do
         	let(:admin) { FactoryGirl.create(:admin) }
         	before do
+        		click_link "Sign out"
         		sign_in admin
         		visit users_path
         	end
-        	it { sould have_link('delete', href: user_path(User.first)) }
+        	it { should have_link('delete', href: user_path(User.first)) }
             it "should be able to delete another user" do
-            expect { click_link('delete') }.to change(User, :count).by(-1)
+           		expect { click_link('delete', match: :first) }.to change(User, :count).by(-1)
             end
             it { should_not have_link('delete', href: user_path(admin)) }
           end
@@ -48,7 +50,7 @@ RSpec.describe "Users", :type => :request do
          end
          end
    
-         end
+         
 
 
 
