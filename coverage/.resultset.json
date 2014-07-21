@@ -182,15 +182,20 @@
         null,
         null
       ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/models/post.rb": [
+        1,
+        1,
+        null
+      ],
       "C:/Users/sarah/Desktop/sasa/opa/app/models/user.rb": [
         1,
         null,
         1,
         null,
         null,
-        73,
+        77,
         1,
-        91,
+        95,
         null,
         null,
         1,
@@ -207,7 +212,7 @@
         null,
         1,
         1,
-        72,
+        76,
         null,
         null,
         null,
@@ -237,6 +242,6 @@
         null
       ]
     },
-    "timestamp": 1405933626
+    "timestamp": 1405936992
   }
 }
