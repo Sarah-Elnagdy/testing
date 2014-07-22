@@ -11,7 +11,13 @@ namespace :db do
       	email = "example-#{n+1}@railstutorial.org"
       	password = "password"
       	User.create!(name: name, email: email, password: password, password_confirmation: password)
-
       end
-	end
+        users = User.limit(6)
+
+        50.times do
+          content = Faker::Lorem.sentence(5)
+          title = Faker::Lorem.word
+          users.each { |user| user.posts.create!(content: content, title: title) }
+      end
+  end
 end

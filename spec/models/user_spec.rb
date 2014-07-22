@@ -11,6 +11,7 @@ it { should respond_to(:password) }
 it { should respond_to(:password_confirmation) }
 it { should respond_to(:remember_token) }
 it { should respond_to(:admin) }
+it { should respond_to(:posts)}
 it { should be_valid }
 it { should_not be_admin }
 
@@ -85,5 +86,24 @@ describe "remember token" do
 		expect(@user.remember_token).not_to be_blank
 	end
 end
+describe "post associations" do
+	before { @user.save }
+	let!(:older_post) do
+      FactoryGirl.create(:post, user: @user, created_at: 1.day.ago)
+	end
+	let!(:newer_post) do
+		FactoryGirl.create(:post, user: @user, created_at:1.hour.ago)
+	end
+it "should have posts in the right order" do
+@user.posts.should == [newer_post, older_post]
+end
 
+it "should destroy assocciated posts" do
+ posts = @user.posts
+ @user.destroy
+ posts.each do |post|
+ 	Post.find_by_id(post.id).should be_nil
+	end
+end
+end
 end
