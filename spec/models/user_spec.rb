@@ -11,7 +11,8 @@ it { should respond_to(:password) }
 it { should respond_to(:password_confirmation) }
 it { should respond_to(:remember_token) }
 it { should respond_to(:admin) }
-it { should respond_to(:posts)}
+it { should respond_to(:posts) }
+it { should respond_to(:feed) }
 it { should be_valid }
 it { should_not be_admin }
 
@@ -105,5 +106,21 @@ it "should destroy assocciated posts" do
  	Post.find_by_id(post.id).should be_nil
 	end
 end
+describe "status" do
+	let(:unfollowed_post) { FactoryGirl.create(:post, user: FactoryGirl.create(:user)) }
+
+   it "should include older post" do
+   	expect(@user.feed).to include(older_post)
+   end
+
+  it "should include newer post" do
+   	expect(@user.feed).to include(newer_post)
+   end
+	  it "should not include unfollowed post" do
+   	expect(@user.feed).not_to include(unfollowed_post)
+   end
+
+	end
+
 end
 end

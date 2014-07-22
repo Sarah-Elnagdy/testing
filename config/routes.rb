@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy, :edit, :update, :show]
 
 
   get '/new' => 'users#new' 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
    
   root 'blogs#home'
+
 
   get '/about' => 'blogs#about'
   get '/signup' => 'users#new'

@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 	              validates :password, presence: true, length: { minimum: 8}
 	              validates :password_confirmation, presence: true, length: { minimum: 8}
 
+def feed
+  Post.where("user_id = ?", id)
+end
+
 
 def self.name_longer_than_eight()
 	User.where(length(name) > 8 )
