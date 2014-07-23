@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 		end
 	end
 	def update
-	    if @post.update_attributes(post_params)
+	    if @post= current_user.posts.find(params[:id]) 
       flash[:notice] = "Post updated"
       redirect_to root_path
     else
@@ -24,10 +24,8 @@ class PostsController < ApplicationController
 
 	def show
 	@post = Post.find(params[:id])
-	#@posts = @posts.[0..50]
       render 'post'
 	end
-
 
 	def destroy
 		@post.destroy
