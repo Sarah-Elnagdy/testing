@@ -14,11 +14,19 @@ class PostsController < ApplicationController
 		end
 	end
 	def update
-		henaaa
+	    if @post.update_attributes(post_params)
+      flash[:notice] = "Post updated"
+      redirect_to root_path
+      #handel a successful update
+    else
+     render 'edit'
+   end
 	end
 
 	def show
-		render show path
+	@post = Post.find(params[:id])
+	#@posts = @posts.[0..50]
+      render 'post'
 	end
 
 
@@ -29,6 +37,7 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find_by_id(params[:id])
+	
 	end
 
 	private
