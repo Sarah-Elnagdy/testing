@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 	    if @post.update_attributes(post_params)
       flash[:notice] = "Post updated"
       redirect_to root_path
-      #handel a successful update
     else
      render 'edit'
    end
