@@ -4,12 +4,21 @@
       "C:/Users/sarah/Desktop/sasa/opa/app/helpers/application_helper.rb": [
         1,
         1,
+<<<<<<< HEAD
         147,
         null,
         147,
         8,
         null,
         139,
+=======
+        15,
+        null,
+        15,
+        0,
+        null,
+        15,
+>>>>>>> exercise_6
         null,
         null,
         null,
@@ -23,6 +32,7 @@
       ],
       "C:/Users/sarah/Desktop/sasa/opa/app/helpers/sessions_helper.rb": [
         1,
+<<<<<<< HEAD
         1,
         45,
         45,
@@ -67,6 +77,8 @@
         40,
         null,
         null,
+=======
+>>>>>>> exercise_6
         null
       ],
       "C:/Users/sarah/Desktop/sasa/opa/app/helpers/users_helper.rb": [
@@ -110,6 +122,31 @@
         1,
         null
       ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/controllers/blogs_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "C:/Users/sarah/Desktop/sasa/opa/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
       "C:/Users/sarah/Desktop/sasa/opa/app/controllers/users_controller.rb": [
         1,
         1,
@@ -125,7 +162,11 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         6,
+=======
+        5,
+>>>>>>> exercise_6
         null,
         null,
         1,
@@ -135,6 +176,11 @@
         3,
         3,
         3,
+<<<<<<< HEAD
+=======
+        2,
+        2,
+>>>>>>> exercise_6
         null,
         1,
         null,
@@ -179,6 +225,7 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         1,
         null,
         2,
@@ -196,6 +243,8 @@
         1,
         1,
         309,
+=======
+>>>>>>> exercise_6
         null
       ],
       "C:/Users/sarah/Desktop/sasa/opa/app/models/user.rb": [
@@ -210,6 +259,7 @@
         122,
         null,
         null,
+<<<<<<< HEAD
         1,
         1,
         1,
@@ -229,6 +279,10 @@
         1,
         1,
         103,
+=======
+        6,
+        23,
+>>>>>>> exercise_6
         null,
         null,
         null,
@@ -291,6 +345,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1406031216
+=======
+    "timestamp": 1405586776
+>>>>>>> exercise_6
   }
 }
